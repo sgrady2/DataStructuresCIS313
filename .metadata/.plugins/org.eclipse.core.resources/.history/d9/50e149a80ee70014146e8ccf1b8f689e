@@ -1,0 +1,19 @@
+
+public class Edge {
+	Node comingFrom;
+	Node goingTo;
+	Integer weight;
+	public Edge(){
+		weight = 0;
+		
+		
+		
+		
+	}
+	public void getPast(){
+		System.out.println(comingFrom);
+		}
+	public void getNext(){
+		System.out.println(goingTo);
+		}
+}

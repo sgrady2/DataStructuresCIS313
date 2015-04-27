@@ -1,0 +1,54 @@
+properties of R-B trees
+-a node can be either red or black
+-the root is black
+-all leaves are black
+-Every red node must have 2 black children
+-every path from the root to the external nodes contains the same number of black edges
+
+How does a RB differ from a normal BST
+What properties make RB-trees balanced?
+Proof of asymptotic bound of RB trees? 2 lgn+1
+How about AVL and sparse trees?
+
+the asymptotic timing of RB trees should be the golden ratio or 1.44(logn)
+need to change the BST node class for RB nodes
+begins with the ordinary bst insertion but dont have to change the given find operation!!
+
+NOTE: BST always add a leaf, RB always dealing with internal nodes
+-insert a noe with bst op as first step, then color it red
+-then lets see whether the new added red node violates any of the RB tree properties
+-Mostly checking whether we have violated propeties 4 and 5
+-theoretically you need to check all of them, but ...???Fd'sA you only need to check 4 unless its the root node(prop 2)
+-fixing property 4 will most always violate property 5. so youre not done after fixing #4
+
+modify your BST node and add a color field
+you may also have an uncle node pointer for all case
+the uncle is the sibiling of a parent or the other child of the grandparent
+5 cases
+
+1. n is the root node
+2. n's parent is black
+3. n's P and U are red
+4. N is right of left child of grandparent(P is red)
+5. n is left of right child of grandparent(P is red)
+CASES UPON INPUTTING A NEW CHILDNODE
+-color flipping before rotating is recommended
+-make sure to derefence pointers
+CASE 1
+N IS THE ROOT NODE
+CASE 2 N'S PARENT IS BLACK
+NOTHING
+CASE 3 could go to case 3 again or others!
+N'S P AND U ARE RED
+1. VIOLATED PROPERTY 4 REPAINT P AND U BLACK
+2. CAUSED VIOLATION BY REPAINTING
+CASE 4 N IS RIGHT CHILD OF P P IS LEFT CHILD OF P'S GP zigzag
+1. PROPERTY 4 IS VIOLATED--LEFT ROTATE ON P-> CASE 5
+CASE 5 N IS THE LEFT CHILD OF P P IS RIGHT CHILD OF P'S GPzigzag
+1. Property 4 violates, do a right rotate on G, not P and flip the color
+
+
+
+
+
+

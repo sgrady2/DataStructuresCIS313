@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class Edge {
+	
+	public Edge(){
+		Node comingFrom = new Node();
+		Node goingTo = new Node();
+		
+	}
+	public void getPast(){
+		System.out.println(comingFrom);
+		}
+	public void getFuture(){
+		System.out.println(goingTo);
+}
+}

@@ -1,0 +1,295 @@
+313 reading notes 2/2
+
+types of ADTs differ by priority and position
+Stack ADT
+push(o) element o to be pushed to the top of the stack
+pop() removes the top element from the stack and returns it
+size()
+isEmpty()
+top() returns without removal
+
+Queue
+FIFO we say elements enter the queue at the rear. Through the rear and leave after waiting the longest time from the mouth or the front
+enqueue(o) stores element o at the rear of the queue
+dequeue() removes the element from the front of the queue
+size
+isempty
+front
+
+if the queue is empty, then the front = the rear
+f is an index to the cell of q storing the first element
+r is an index to the available cell for enqueue(o)
+
+make Q a circular array
+each time we increment f or r we simply computer f+1 mod N where N is the max availablle spot
+we fix this by saying not to enqueue more than N-1 elements
+
+Multithreading is acheived by storing the PC program counter or the reference to the next instruction call at the top of each thread stack. a CPU can have multiple thread and thread stacks. It is important not to monopolize on one thread stack
+or hanging occurs
+
+So CPUs are separated from each other and stacks within the CPU are separate but concurrently sharing resources
+
+OS's utilize a queue for allocating the CPU time to runnable threads in the round-robin protocol
+R-R protocol
+the main idea is to store all runnable threads or stacks in a queue Q.
+When the CPU is rerady to proced a time slice to a thread, it performs a dequeue operation on the Q to get the next available thread T. In this way threads are waiting in line to be run in an order. much like we wait in lines
+Before the CPU begins executing T, it starts a timer running in hardware set to expire a fixed amount of time later.
+The CPU now waits until case1--thead T blocks itself case2--the timer expires. 
+In case 2 the CPU stops execution of T and performs an enqueue operation to place T at the end of the line of runnable threads
+In both cases, the CPU saves the current value of T's program counter at the top of T's method stack and processes the next available running thread by extracting it from Q (dequeue)
+List ADT
+replace(p,e)--replaces the ele at pos p with e
+swap(p,q)- swaps the elements stored at p and q
+insertFirst(e)-
+Headers and Trailers
+header points to the first element
+trailer points to null in SLL
+trailer points to last element in DLL
+
+Table 2.14 is essential to understanding sequences and why we choose one ADT over the other
+The TREE ADT
+the real power of node positions in a tree come from the accessor methods for accessing nodes inside the tree
+root()--returns the root of the tree
+parent(v)--returns the parent node of node v; an error occurs if v is the root
+children(v)--return an iterator of the children of node v
+
+if T is ordered, then the iterator children(v) provides access to the children of v IN ORDER. 
+If v is an external node, then children(v) is an empty iterator
+
+included is some QUERY METHODS for the tree
+
+isInternal(v)--test whether c is internal or external
+isExternal(v)--Test whether node v is external
+isRoot(v--test if v is the root
+
+GENERIC METHODS OF A TREE
+size()
+elements()
+positions()
+swapElements(v,w)
+replaceElements(v,e)
+
+Tree TRAVERSALS
+
+root() and parent(v) are of constant time
+isInternal,isExternal, isRoot are also constant
+children(v) takes O(cv) where cv is the number of children of v so O(n) for n children, but a parent will never have n children in an n element tree so cv stands for somewhere around log n
+swapElements and replaceElements are constant 
+elements() and positions(), which return iterators take O(n) time where n is the numer of nodes in the tree
+hasNext() and nextObject() are iterator methods of chilren(), elements and positions which are constant time
+
+if v is the root, 0 is it depth, its children have depth 1 ect
+Recursivedepth(T,v):
+if T.isroot() then
+	return 0;
+else
+	return 1+depth(T, T.parent(v)
+
+	the running time for computing the depth of a node v in a tree T is O(1+dv) where dv denotes the depth of the node v in Tree T. The depth of a tree with n nodes is log n but this algorithm has a worst case of O(n) because it could traverse through each node of the tree before finding dv
+
+	The height of a tree is equal to the max depth of an external node of T
+	So in other words the algorithm answers the question where is the parent with the greatest depth?
+	That is the height of the tree T
+	the height of a tree is the height of the root
+
+	Algorithm height(T,v):
+	if T.isExternal(v) then
+		return 0
+	else
+		h=0
+		for each w e T.children(v) do
+			h - max(h,height(T,w))
+		return 1+h
+it is recursive because if it is initially called on root T,
+it will eventually be called once on each node of T (and return if there are no children of the root)
+The overall running time of the preorder traversal is O(n)
+
+call this round-robin time slicing 
+most threads in reality are given priority queues to implement time slicing
+Vectors
+
+we define the rank of an element in e in S to be the number of elements that are before e in S.
+Hence the first element in a sequence has rank 0 and the last element has rank n-1
+this is similar to the index 0 of an array, but they insist on NOT doing this so that rank element 0 is stored at array index 0
+the rank of an element may change whenever the sequence is updated for ex if we insert a new element at the beginning of the sequence , the rank of each other element has increased by 1
+
+a linear sequence that supports access to its elements bt their ranks is called a vector
+rank can be used to specify where to insert a new element into a vector or where to remove an old element. 
+we can give the rank that a new element will have after it is inserted insert rank 2(all ranks after increase) or remove rank 2(all ranks after decrease)
+
+replaceElement is O(1)
+insert is O(n)
+remove is O(n)
+inserting or removing at the end of a vector is O(1) this is a best case for a normally worst case O(n)
+
+vectors are represented by the extendable array
+Lists
+a position is always defined relatively in terms of its neighbors. Position p will be after q and before r unless p is either first or last which are included in the definitoin of lists and position
+
+LIST ADT
+first()- return the position of the first element of S, an error occurs if S is empty
+last()- return the position of the last element of S; same as above
+isFirst(p)-passed a pointer, returns a boolean of whether the position is first
+isLast(p)-returns a boolean indication if its the last
+before(p)-returns the left neighbor of p; error if p isfirst
+after(p)- returns the right neight of p;
+
+
+whooops order
+
+both preorder and post rely on the fact that visiting each node takes O(1) time
+preorder and postorder use stacks to store nodes and traverse
+inorder or breathd first level traverse uses a queue
+
+Binary TREEE
+is an ordered tree in which each internal node has EXACTLY 2 children
+we can view improper binary trees as proper by setting the children of external nodes to null and filling up each 2 leaf branch
+
+the BT ADT supports 3 accessor methods
+leftchild(V)Errors occur is v is external
+rightchild(v)
+sibiling(v) which is on the same level as v, an error occurs if v is the roots
+
+level 0 = 1
+level 1 = 2
+level 2 = 4
+level 3 = 8
+so onsoforth
+
+Theorem for Proper Binary Trees
+1. the number of external nodes in T is ATLEAST h+1 and at most 2^h 
+2. the number of internal nodes in T is at least h and at most 2^h-1
+3. the total number of nodes in T is at least 2h+1 and at most 2^(h+1) - 1
+4. The height of T is at least log(n+1)-1 and at most (n-1)/2 that is: log(n+1) - 1 <= h <= (n-1)/2
+
+for a tree with h= 3 n = 8
+1. at least 4 at most 8 EN
+2. at least 3 at most 7 IN
+3. at least 9 at most 15
+4.the height ofT is log(n+1)
+
+Algorithm binaryPreorder(T,v):
+perform visit action for v
+if v is an internal node
+	binaryPreorder(T,T.leftchild(v))
+	binaryPreorder(T,T.rightchild(v))
+
+Algorithm 2.27 postorder is flipped like before
+
+Algorithm inorder(T,v):
+	if v is an internal node then
+		inorder(T,T.leftchild(v))
+	perform the visit for node v
+	if v is an internal node then
+		inorder(T,T.rightChild(v))
+big things here: we do the inorder traversal of the left side fully first, then visit the root, then visit the right children
+
+The Euler Tour
+Algorithm eulerTour(T,v):
+	visit node v on the left
+	if v is internal then
+		recursively tou the left subtree of v eulertour..leftChild(v)
+	performt he action for visiting node v from below
+	if v is an internal node then
+		recursively tour the right subtree by calling eulertour..rightChild(v)
+	perform the action for visiting a node v on the right
+Euler visit is an O(n) time method for computing the number of decendents for each node in T
+
+	Algorithm 2.32
+Algorithm printExpression(T,v):
+	if T.isExternal(v) then
+		print the value stored at v
+	else
+		print (
+		printExpression(T, T.leftChild(v))
+		print the operator stored at v
+		printExpression(T, T.rightChild(v))
+		print )
+
+Data Structures for representing Treeees
+Vector Based
+for every node v of T let p(v) be the the integer defined as follows:
+if v is the root, p(v) = 1
+if v is the left child of node u, p(v) = 2p(u)
+if v is the right subchild of node u, then p(v) = 2p(u)+1
+
+the numbering function p is known as level numbering of the nodes in a binary tree because
+it numbers the node on each level of T in increasing order from left to right, although it may skip numbers 
+the node v of t is associated with element S at Rank p(v)
+the element of S at rank 0 is not associated with any node of T
+
+running times of methods of a binary tree implemented with a vector
+positions, element are O(n)
+swapElements, replaceElement are O(1)
+root,parent,children are O(1)
+leftChild, rightChild, sibiling are(1)
+isExt isInt isRoot are also constant
+
+The space usage of a binary tree is O(N) which is O(2^(n+1)/2 in the worse case)
+
+each node in a linked binary search tree has a pointer to the left, right and parent node, then one spot for the element
+if v is the root, the reference to its parent is null, this is how we define the parent
+
+size(),swapEle(),isEmpty(), and replaceEle are constant O(1)
+
+the overall space requirement for a linked tree is O(n)
+whereas the overall space req for a position or vector tree is O(N) with a way bigger upperbound
+
+the difference between a binary tree and a binary tree is that the implementation uses an efficient contain such as a list or a vector to stroe the children of each node in stead of direct linked to exactly 2 children
+
+Priority queues differ by being ordered and unordered by their keys
+sorted means insertmin is O(1) and insertitem O(n)
+this is opposite for unsorted 
+selection sort is meant for unsorted priority sequences on pair(k,e)
+insertion sort is meant for sorted priority sequences on pair(k,e) where elements are sorted by their key
+so hence both are have the same running time but in reverse order, which is O(n^2)
+Selection sort always takes omega n squared time,
+b/c selecting the minimum in each step of the second phase requires scanning through the entire priority queue
+insertion sort can beat this for the reasons stated above
+again selection sort is on unsorted sequences
+insertion sort is on sorted sequences
+the sorted sequence will always sort faster which is really redundant to say but these people are jizzing about it
+
+heap is a realization of the priority queue
+the heap data struct allows us to perform insertions and removals in logarithmic time
+
+heaps abandon the idea of storing elements in a sequence and store elements into a binary tree ADT
+
+side above note about keys is that they store information about rank or weight of the element so we can compare and sort 
+
+A heap satisfies 2 properties along with the one that it stores keys at its internal nodes
+1. a relational property defined in terms of the way keys are stored in T
+2.a structural property defined in terms of T itself
+External nodes of T do not store keys or elements but they serve as placeholders
+
+Heap-Order Property: In heap T, for every node v other than T.root, the key stored at v is greater than or equal to the key stored at v's parent, so the heaps key grow as the heap itself grows
+
+As a consequence of this, keys encountered on a path from the root to an external node 
+are in non-decreasing order(lolnot >=)
+The min key is always stored at the root
+for the sake of efficiency we want the heap T to have as small of height as possible (most balanced)
+
+Complete binary tree
+a binary tree with height h is complete if the levels 0 1 2 h-1 have the max number of nodes possible
+ie level i has 2^i nodes for 0<i<h-1 AND AND AND in level h-1 all the internal nodes are to the LEFT of externals
+
+heap- a complete binary tree whose elements are stored at internal nodes and have keys satisfying the heap-order property
+we assume the BT T is implemented using a vector, for each internal node v of T we denote the key of element stored at v
+by: k(v)
+
+last is a reference to the deepest most right internal node
+
+comp : a comparator that defines the total order relation among the keys we assume comp maintains the minimum element at the root
+
+height = log(n+1) because we start with the 0th node or the root and so 
+
+in order to store a pair k,e into T we need to add a new internal node. In order to keep T complete, 
+we must add this node so that it becomes the new last node of T.
+ie we must identify the correct external x where we will perform an expandExternal(z)
+this op replaces x with an internal node and with empty external node children
+Node z is called the insertion position
+
+by vector implementation, the insertion position is stored at index n+1 where n is the current size of the heap
+thus we can identify z in constant time in the vector implementing T
+then k(z) = k after performing expandExternal to. expExt replaces the node, and k(z) sets the key
+

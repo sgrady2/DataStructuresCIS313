@@ -1,0 +1,60 @@
+313 Notes Day 1
+Complexity measure
+time(# of steps)
+space(ie how steps affect memory)
+bandwidth
+disk access(disk io is slow compared to a chip cycle)
+
+Pseudocode--no machine, simple high level language
+Complexity of the program, worst and best case gives an average case
+Complexity of the problem, such as sorting or bipartite matching
+
+Bubblesort is O(n^2), giving its worst case as a 'default' case
+Order of growth on comparisons given n elements and 
+or order of magnitude
+
+we are talking about the algorithm and not the hardware that might affect the complexity and timing of the overall situation
+
+DEF
+
+
+314 3 things
+basic idea of signed and unsigned
+if you compare signed and unsigned you get unexpected results
+having all 1111 on a signed number is -1
+IMPORTANT
+--------
+this holds for 2s compliment dealing with singed numbers
+
+x+~x=-1
+
+x+1=~x
+
+Low effective address long leal-
+C code
+int mull2(int x){
+	return x*12;
+}
+mults
+leal (%eax, %eax, 2), %eax
+sall $2, %eax
+divs
+shift right logic SRL
+shrl $3, %eax
+
+IEEE Standard Floating Point
+
+
+ALWAYS use signed 
+
+
+f(n) = O(g(n))
+
+Notation
+--------
+O Means <=
+big Omega means >=
+big Theta means =
+little omega w means >
+little o means <
+

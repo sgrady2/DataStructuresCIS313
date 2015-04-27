@@ -1,0 +1,92 @@
+313 notes 1/21
+
+Lim log^3/n^1/3 approaches 0
+or in the text they sat that log^y n = O(n^x)
+extract log^4 n = O(n^1/3)
+log^3 is o(log^4n)
+lim log^3 n / log^4 n = lim 1/log^n = 0
+
+Catalan numbers
+----------------
+Number of n-node improper binary trees
+(1/(n+1))*(2n choose n)
+number of proper binary trees with n internal nodes
+
+Binary search Tree
+===================
+small numbers on left, big on right, its sorted by > and <
+not assuming duplicates so no ties to break
+
+inserting a number, failed search, then compare leaves to know where it should be inserted in the tree
+
+inserting a list of numbers, say 1-7 [1,2,....7]
+skew tree looks like a list of numbers moving right and left 1-7 is 1\7 with branches always moving right because numbers tothe right are always bigger
+
+Binary Search Tree sort
+Given a1 to an
+BST(T)
+for i=1 to n
+	T.insert(ai)
+T.inorderTraversal would be O(n) time
+
+How long is the first part of BST(T)?
+O(n^2) worst, average is nlogn
+
+External to internal path lengths?
+
+# of permutations 1,2..n = n!
+
+number of trees with 1,2,...n nodes 1/(n+1)*2n choose n which is O(4^n/n^3/2)
+
+Balanced trees are more likely because they are symetric (reversable?) as opposited to unbalanced which are more unique.
+
+If we look at trees as having ranges for numbers to be inserted, all binary trees would be proper
+
+Measures of height and depth
+
+Path lengths==HW question
+Internal path lengths of a tree is the sum of the internal nodes depths.
+External path lengths of a tree is the sum of the external node depths. Note that we draw boxes to idealize a proper tree
+
+if we have n internal nodes the difference between the internal and external path lengths is 2n.
+E = I + 2n proving this by induction, starting with a base case and then adding 
+start with a tree, then replace an external node with an internal node at depth k with 2 new external nodes at depth k+1
+E', I', n' = n+1 because were adding one node.
+Start with a base case of 3 nodes? n=0 will work n=1 E=2 I=0 shows this base case.
+
+avg depth of an internal node I/n, so # of searches is (I/n + 1)
+for searches of external nodes we have e = n+1 ext nodes (E/ n+1 )
+Going back to traversals...
+
+Build a BST, do an inorder traversal, left to right moving bottom to top
+inorder(v)
+if v!=null
+	inorder(lchild(v))
+	visit print v
+	inorder(rchild(v))
+	visit print v
+
+
+Preorder(v)
+if v!=null
+	visit v
+	preorder(lchild(v))
+	preorder(rchild(v))
+
+Seeing each node 3 times, O(3n) or n for n elements
+
+Preorder'(t)
+stack S
+S.push (t.root)
+while S not empty 
+	s.pop
+	visit v
+	S.push(rchild(v))
+	S.push(lchild(v))
+
+
+
+
+
+
+

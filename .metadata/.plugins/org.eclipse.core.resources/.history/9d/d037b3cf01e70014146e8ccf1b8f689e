@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+//Since Vertices can have multiple incoming or outgoing edges
+//it is essential for the class node (an instance of a vertice) to be 
+//lists of edges that are leaving and coming to a vertext
+public class Node {
+	ArrayList<Edge> incEdges = new ArrayList<Edge>();
+	ArrayList<Edge> outEdges = new ArrayList<Edge>();
+	Integer vid = 0;
+	public Node(Integer id) {
+		ArrayList<Edge> incEdges = new ArrayList<Edge>();
+		ArrayList<Edge> outEdges = new ArrayList<Edge>();
+		this.vid = id;
+        
+	}
+	public void getIncoming(){
+		for (Edge edge: incEdges){
+			System.out.println(edge);
+		}
+	}
+	public void getOutgoing(){
+		for (Edge edge: outEdges){
+			System.out.println(edge);
+		}
+}
+}

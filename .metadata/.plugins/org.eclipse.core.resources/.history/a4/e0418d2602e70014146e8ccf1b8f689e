@@ -1,0 +1,16 @@
+
+public class Edge {
+	Node comingFrom;
+	Node goingTo;
+	public Edge(Node past,Node future){
+		this.comingFrom = past;
+		this.goingTo = future;
+		
+	}
+	public void getPast(){
+		System.out.println(comingFrom);
+		}
+	public void getNext(){
+		System.out.println(goingTo);
+		}
+}

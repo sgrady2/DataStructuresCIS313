@@ -1,0 +1,33 @@
+CIS 313 notes 1/23
+
+Dont push null pointers!!
+
+Life cycles of nodes, in preorder and inorder each node is visited 0,1 and 2 times 
+
+Activation records or stack frames, using step counters to understand what phase were in (pseudocode)
+
+always start traversals with Q.enque(T.root) S.push(T.root)
+
+Level order (gen go left to right)
+
+FORT
+-------
+Forrest of ordered trees
+so its a collection of ordered trees
+
+BST
+===
+Binary Search Tree ops
+insert, delete, next, previous (uses tree order)
+Delete
+------
+its easiest to delete an external node for obvious reasons
+
+if its an internal node with one child... just readjust the parent of the deleted node to the child of the deleted node
+
+for deleted a root, find a left successor and copy that value to the root
+
+3 cases for deletion
+0 just delete
+1 splice
+2 

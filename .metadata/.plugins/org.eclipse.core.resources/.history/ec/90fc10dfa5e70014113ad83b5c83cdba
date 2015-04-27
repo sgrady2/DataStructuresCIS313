@@ -1,0 +1,17 @@
+
+public class Edge {
+	Integer row;
+	Integer col;
+	Integer weight;
+	public Edge(int first, int second){
+		this.row = in1;
+		this.col = in2;
+		
+	}
+	public void getPast(){
+		System.out.println(comingFrom);
+		}
+	public void getNext(){
+		System.out.println(goingTo);
+		}
+}

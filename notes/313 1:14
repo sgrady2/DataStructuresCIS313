@@ -1,0 +1,70 @@
+313 1/14
+
+How do you implement a stack ?
+using a single linked list
+[5 | --]> [6 |--]> [8 | --]> [7 |--]>
+using an Array
+[][][][][][][]
+using stack rules, push and pop
+
+Queue
+enqueue to the tail, dequeue from the head!!
+for this we could use a linked list
+
+if you have an array, it wraps around?
+
+Activation Stack
+================
+fib(n)
+fib(n-1)...
+STACKS USE SPACE
+
+when doing space analyze we have to keep track of the depth of the stack with regard to the level of recursion called becaaauusee...---->>>
+when you make a function call, that call gets put on a stack
+
+Strings in java are immutable, 
+meaning in java using the wrong structure could end up copying a lot more data and using a lot more space than desired
+
+Suppose queues, but not stacks...
+given queue ADT
+===============
+Abstract Data Type
+build a stack
+
+Theta n^2 because the data has to be copyed from one queue to another and then back. so O(n^2) and Omega(n^2)
+So now one operation takes O(n) and 
+
+
+Now given a stack ADT,
+build a queue
+==============
+
+now any one operation is O(n) but the total time is O(n)
+
+
+so building a stack from a Queue DT is bad
+and building a queue from a stack DT is not really anything?
+
+Keeping the data type abstract, we !
+
+TREE STRUCTURES
+===============
+free tree-connected graph with no cycles or looping nodes
+if n vertices, n-1 edges(disallows cycle)
+Rooted tree- is a free tree with a root
+Ordered Tree- Each child has a number 1,2,3,..k
+first-child, next-sibiling representation
+Ex---->
+
+
+
+
+
+
+
+
+
+314 hmwrk3
+a- 1
+b-0000 0000 0000 0000 0000 0001 0010 1010
+100101010

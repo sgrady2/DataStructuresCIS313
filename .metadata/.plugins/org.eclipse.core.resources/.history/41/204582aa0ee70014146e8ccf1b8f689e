@@ -1,0 +1,22 @@
+
+public class Edge {
+	Integer comingFrom;
+	Integer goingTo;
+	Integer weight;
+	public Edge(int first, int second, int theWeight){
+		this.comingFrom = first;
+		this.goingTo = second;
+		this.weight = theWeight;
+		
+		
+		
+		
+		
+	}
+	public void getPast(){
+		System.out.println(comingFrom);
+		}
+	public void getNext(){
+		System.out.println(goingTo);
+		}
+}

@@ -1,0 +1,52 @@
+Notes 313|
+----------
+Standard representation - - first child next sibiling - -] Save for binomial heaps
+
+Binary Tree= child nodes have up to degree 3 where the parent always has degree two each parent has at max 2 children
+
+A proper binary tree is a full binary tree, every node has either 2 children, or no children.
+Parents with 2 children are internal nodes and parents with no children are external
+A default tree in the book is a proper binary tree
+
+depth of a node= is the distance from the root node
+height of a node= is the maximum distance from an external node in that nodes subtree!
+height of leaves are always zero. so then count up but use the algorithm one plus the max of the child
+
+Preorder Traversal
+-------------------
+Preorder(v)-->> apply visit to node v (print that node)
+for all children w of v 
+	preorder(w)
+start with root, the go down to parent then child moving left to right
+
+
+Postorder Traversal
+--------------------
+This is opposite of above, so we start with the furtherst left child then move to its parent, then move to the children of parents of the same depth, leaving the root for last.
+
+
+External nodes are called leaves
+Theres always 1 more internal node than external node
+
+Binary Trees, Inorder traversal
+=================================
+If the node isnt null, 
+Inorder trav(lchild(v))
+Inorder trav(rchild(r))
+
+Flows left to right, not as much bottem to top
+
+Internal and external sometimes serve completely different but intertwined purposees
+
+for n nodes
+improper means not full
+how many binary trees are there with n internal nodes- with n= 2, ^\ and /^ root = ^ and edge = /\
+
+for n= 2 there are 2 trees, for n = 3 there are 5 trees, for n = 4 theres a bunch of them??
+Catalan numbers
+=================
+1/(n+1)(2n choose n)
+
+   ^
+ / | \
+ -----

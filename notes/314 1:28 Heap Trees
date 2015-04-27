@@ -1,0 +1,83 @@
+314 induction problem
+---------------------
+induction on n, not induction on k
+
+induction on number of internal nodes
+
+for a tree T using E = I+2n
+
+tranmoslating to a tree where n = n+1 , replacing an external node with an internal node
+
+The induction is on the number of node which effects the internal path lengths
+
+E'
+I'
+show E' = I'+2n' where n' = n+1
+so plug things in an it should reduce back to E = I+2n
+
+Heap, is a tree with a max node min val at the root, a min node is
+all subgraphs 
+MIN HEAP
+a binary heap with the min val at the root, so each path contains an increasing sequence in value
+the shape is constrained, if n nodes, then theres a specific shape. This lets us store the heap tree in an array
+The maximum height of the heap is log n
+These are sometimes called complete binary trees
+
+0 1 2 3  4 5  6  7
+3 5 8 12 7 9 14 13
+
+This is displaying the numbers by level, 2^0 nodes are h=0 2^1 are at h=2
+
+Bubble up,
+----------
+compare to parent, swap if heap property is violated,
+you do not remove arbitrary elements, you compare and insert
+Primm's algorithm
+
+why log n?
+==========
+n nodes with height H
+because if you want to add a level of height to a tree it requires doubling the number of nodes and then returning from that requires logbase2(n).
+
+Heap operations
+================
+insert, O(logn) via bubble up
+decreaseKey(k,B)
+	set value at loc
+	k to b(smaller)
+	Bubbleup
+
+
+On a heap!!! the left child so 2^h + 1 is the minimum child of that level
+
+Remove Min
+min = a[0]
+a[0] = a[heapsize]
+heapsze--
+heapify(1)
+return min
+
+heapify(i)
+//fixes heap at location i using bubbledown
+lc = leftChild(i)
+rc = rightchild(i)
+case if both are nill do nothing
+case if lc not nil and rc nil
+	if a[i] >a[l]
+		then swap a[i] with a[lc]
+Else case3 if a[lc] > a[rc]
+		then small = rc
+		else small = lc
+}
+if a[i] > a[small]
+	then swap a[i] a[small]
+	heapify(small)
+
+heapify assumes that the left and right subtrees are also heaps
+
+Building a Heap O(n)
+=-=-=-=-=-=-=-=-=
+start with something obviously not a heap
+The external nodes are considered the start of a heap. so we can heapify the nodes that are connected to an external node
+
+
